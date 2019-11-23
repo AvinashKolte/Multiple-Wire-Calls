@@ -1,0 +1,23 @@
+<aura:component >
+<aura:attribute name="recordList" type="sObject[]"/>
+    <aura:attribute name="listViewN" type="String"/>
+    <aura:attribute name="sObjectN" type="String"/>
+    <aura:attribute name="showList" type="Boolean" default="false"/>
+   <aura:handler event="c:ListViewEvent" action="{!c.handleApplicationEvent}"/>
+
+    <!--<aura:iteration items="{!v.recordList}" var="r">
+        <ui:outputText value="{!r.Id}" click="{!c.fireRecordDetailEvent}"/>
+    </aura:iteration>-->
+    <aura:if isTrue="{!v.showList==true}">
+    <lightning:listView aura:id="listViewAccounts"
+    objectApiName="{!v.sObjectN}"
+    listName="{!v.listViewN}"
+    rows="100"
+    showSearchBar="true"
+    showActionBar="true"
+    enableInlineEdit="true"
+    showRowLevelActions="true"
+    
+    />
+        </aura:if>
+</aura:component>

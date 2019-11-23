@@ -1,0 +1,33 @@
+<aura:component>
+        <aura:attribute name="recordId" type="String"/>
+        <aura:attribute name="sObjectName" type="String"/>
+        <aura:attribute name="recordPresent" type="Boolean" default="false"/>
+    <aura:attribute name="disabled" type="Boolean" default="false" />
+    <aura:attribute name="saved" type="Boolean" default="false" />
+    <aura:attribute name="showSpinner" type="Boolean" default="true" />
+   <!-- <aura:if isTrue="{!v.showSpinner}">
+        <lightning:spinner />
+    </aura:if>-->
+    <aura:if isTrue="{!v.recordPresent}">
+        <lightning:recordEditForm
+            onload="{!c.handleLoad}"
+            onsubmit="{!c.handleSubmit}"
+            onsuccess="{!c.handleSuccess}"
+            recordId="{!v.recordId}"
+            objectApiName="{!v.sObjectName}">
+            <!-- the messages component is for error messages -->
+            <lightning:messages />
+
+            <lightning:inputField fieldName="Name" />
+            <lightning:inputField fieldName="Owner" />
+            
+            <div class="slds-m-top_medium">
+                <lightning:button disabled="{!v.disabled}" variant="brand" type="submit" name="save" label="Save" />
+            </div>
+        </lightning:recordEditForm>
+        <!--<aura:set attribute="else">
+            <p>Saved!</p>
+        </aura:set>-->
+    </aura:if>
+
+</aura:component>

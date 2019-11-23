@@ -1,0 +1,32 @@
+<aura:component controller="ListViewController">
+    <aura:attribute name="listViewOptions" type="String[]"/>
+    <aura:attribute name="selectedValue" type="String"/>
+    <aura:attribute name="selectedSobject" type="String"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:registerEvent name="appEvent" type="c:ListViewEvent"/>
+	
+   
+<div class="slds-grid slds-gutters">
+  <div class="slds-col">
+   <ui:inputSelect class="single" label="select Sobject: " aura:id="InputSelectSingle" change="{!c.onSobjectChange}">
+			
+            <ui:inputSelectOption text="Account" value="Account" />
+            <ui:inputSelectOption text="Contact" value="Contact"/>
+            <ui:inputSelectOption text="Lead" value="Lead"/>
+        	<ui:inputSelectOption text="Opportunity" value="Opportunity"/>
+    </ui:inputSelect>
+  </div>
+  <div class="slds-col">
+    <ui:inputSelect  label="Select ListView: " aura:id="listViewSelect" value="{!v.selectedValue}" change="{!c.handleListViewChange}">
+
+                <aura:iteration items="{!v.listViewOptions}" var="item">
+
+                    <option text="{!item}" value="{!item}" selected="{!item}"/>
+
+                </aura:iteration>
+
+            </ui:inputSelect>
+  </div>
+ 
+</div>
+</aura:component>
