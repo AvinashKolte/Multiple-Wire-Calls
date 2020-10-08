@@ -1,0 +1,23 @@
+<template>
+        <lightning-card title="Demo">
+
+                <div class="slds-p-horizontal_small">
+                        <h3>Inside the LWC--></h3>
+                    <lightning-combobox name="stage" label="Stage" value={selectedStage}
+                                placeholder="Select Stage" options={stageOptions} onchange={handleChange}>
+                        </lightning-combobox>
+                        <br />
+                        <!--<h3>Selected Stage Is:{oppRecord.StageName}</h3>-->
+                        <br />
+                        <lightning-combobox name="leadsource" label="Lead Source" value={selectedLeadSource}
+                                placeholder="Select Lead Source" options={leadSourceOptions} onchange={handleChange}>
+                        </lightning-combobox>
+                      <!--<h3>Selected Lead Source Is:{oppRecord.LeadSource}</h3>-->
+                        <br />
+                        <lightning-combobox name="type" label="Type" value={selectedType} placeholder="Select Type"
+                                options={typeOptions} onchange={handleChange}></lightning-combobox>
+                        <br />
+                        <!--<h3>Selected Type Is:{oppRecord.Type}</h3>-->
+                </div>
+        </lightning-card>
+</template>
